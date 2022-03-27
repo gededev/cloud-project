@@ -1,0 +1,24 @@
+{
+  "name": "cloud-project",
+  "version": "1.0.0",
+  "description": "project for cloud school subject",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gededev/cloud-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gededev/cloud-project/issues"
+  },
+  "homepage": "https://github.com/gededev/cloud-project#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.8"
+  }
+}

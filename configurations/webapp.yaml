@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-project-deployment
+  labels:
+    app: cloud-project
+spec:
+  #Stateful app
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-project
+  template:
+    metadata:
+      labels:
+        app: cloud-project
+    spec:
+      containers:
+      - name: cloud-project
+        image: cloud-project:1.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        env:
+        - name: USER_NAME
+        #Value from Secret
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: USER_PWD
+        #Value from Secret
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password
+        - name: DB_URL
+        #Value from ConfigMap
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-project-service
+spec:
+  type: NodePort
+  selector:
+    app: cloud-project
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30100
