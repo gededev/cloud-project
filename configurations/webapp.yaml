@@ -5,11 +5,11 @@ metadata:
   labels:
     app: cloud-project
 spec:
-  #Stateful app
   replicas: 1
   selector:
     matchLabels:
       app: cloud-project
+  #Pod specifications
   template:
     metadata:
       labels:

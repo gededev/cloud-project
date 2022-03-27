@@ -10,6 +10,7 @@ spec:
   selector:
     matchLabels:
       app: mongo
+  #Pod specifications
   template:
     metadata:
       labels:

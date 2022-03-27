@@ -76,6 +76,7 @@ Or just run:
 ```
 minikube service cloud-project-service
 ```
+>⚠️ **Warning** : Minikube on windows might have problems regarding the version to access the service. Refer to this [stackoverflow post](https://stackoverflow.com/questions/61305722/why-cant-i-access-a-service-exposed-from-minikube-on-windows) to fix it
 
 ## Docker & Docker Compose
 >⚠️ **Warning** : index.js file contains all scenarios for several deployment options. To use the docker-compose option, replace in all MongoClient.connect() calls the first attribute (named mongoUrl..) with **mongoUrlDockerCompose** (variable declared in the index.js)
