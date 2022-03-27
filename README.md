@@ -61,6 +61,21 @@ Then see the state of your cluster using:
 kubectl get all
 ```
 To access our clusterized app, retrieve necessary informations using:
+```
+kubectl get svc
+```
+```
+minikube ip
+```
+```
+kubectl get node -o wide
+```
+App URL: Minikube IP + service port
+
+Or just run:
+```
+minikube service cloud-project-service
+```
 
 ## Docker & Docker Compose
 >⚠️ **Warning** : index.js file contains all scenarios for several deployment options. To use the docker-compose option, replace in all MongoClient.connect() calls the first attribute (named mongoUrl..) with **mongoUrlDockerCompose** (variable declared in the index.js)
